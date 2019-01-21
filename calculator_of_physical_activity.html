@@ -1,0 +1,217 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<title>Калькулятор фізичної активності</title>
+	<script src="js/bootstrap.min.js"></script>
+	 <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+	 <link rel="stylesheet" href="css/style.css">
+	  <link rel="stylesheet" type="text/css" href="css/demo.css" />
+	<link rel="stylesheet" type="text/css" href="css/component.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<style>
+
+
+</style>
+</head>
+<body>
+  <section id="calculator">
+	<div class="container">
+	<div class="row" id="app">
+	<h1>Калькулятор фізичної активності</h1>
+	<div class="col-md-4 col-sm-12 col-xs-12">
+	<h3>Продукти</h3>
+	<h4>Борошняні кондитерські вироби</h4>
+	<div class="new-select-style-wpandyou">
+	<select name="flour_confectioner" form="my_form" v-model="product">
+	<option value="">Виберіть продукт</option>
+		<option value="544">Вафлі</option>
+		<option value="518">Вафлі в шоколаді</option>
+		<option value="358">Вафлі фруктові</option>
+		<option value="438">Крекери</option>
+		<option value="329">Тістечко заварне</option>
+		<option value="350">Пряники</option>
+		<option value="458">Печиво здобне</option>
+    </select>
+   </div>
+	<h4>Випічка</h4>
+	<div class="new-select-style-wpandyou">
+	 <select name="baking" form="my_form" v-model="product">
+	 <option value="">Виберіть продукт</option>
+		<option value="186">Млинці</option>
+        <option value="640">Млинці з сиром</option>
+        <option value="318">Ватрушка з сиром</option>
+        <option value="296">Пончики</option>
+        <option value="186">Шарлотка</option>	
+        <option value="284">Пиріг з повидлом</option>	
+    </select>
+	</div>
+	<h4>Цукерки</h4>
+	<div class="new-select-style-wpandyou">
+	 <select name="sweets" form="my_form" v-model="product">
+	 <option value="">Виберіть продукт</option>
+		<option value="527">Батончики</option>
+		<option value="451">Батончики шоколадні</option>
+		<option value="552">Драже горіхове</option>
+		<option value="374">Драже цукрове</option>
+		<option value="320">Мармелад</option>
+		<option value="160">Мармелад желейний</option>
+		<option value="400">Ірис</option>
+		<option value="509">Грильяж</option>
+		<option value="364">Цукерки молочні</option>
+		<option value="369">Цукерки помадні</option>
+    </select>
+	</div>
+	<h4>Шоколад</h4>
+	<div class="new-select-style-wpandyou">
+	 <select name="chocolate" form="my_form"  v-model="product">
+	 <option value="">Виберіть продукт</option>
+		<option value="545">Шоколад без додатків</option>
+		<option value="278">Шоколад білий</option>
+		<option value="549">Шоколад гіркий</option>
+		<option value="450">Шоколад з наповнювачем</option>
+		<option value="549">Шоколад молочний</option>
+		<option value="549">Шоколад пористий</option>
+    </select>
+	</div>
+	<h4>Морозиво</h4>
+	<div class="new-select-style-wpandyou">
+	 <select name="ice_cream" form="my_form" v-model="product">
+	 <option value="">Виберіть продукт</option>
+		<option value="126">Морозиво молочне</option>
+		<option value="179">Морозиво вершкове</option>
+		<option value="227">Пломбір</option>
+		<option value="236">Пломбір шоколадний</option>
+		<option value="235">Крем-брюле</option>
+		<option value="270">Ескімо</option>
+    </select>
+	</div>
+	<h4>Варення</h4>
+	<div class="new-select-style-wpandyou">
+	 <select name="jam" form="my_form" v-model="product">
+	    <option value="">Виберіть продукт</option>
+		<option value="271">Варення з груш</option>
+		<option value="271">Варення з полуниці</option>
+		<option value="275">Варення з малини</option>
+		<option value="281">Варення зі сливи</option>
+		<option value="254">Варення з яблук</option>
+    </select>
+	</div>
+	
+	<h4>Фаст-фуд</h4>
+	<div class="new-select-style-wpandyou">
+	 <select name="fast_food" form="my_form"  v-model="product">
+	 <option value="">Виберіть продукт</option>
+		<option value="312">Картопля фрі</option>
+		<option value="259">Гамбургер</option>
+		<option value="177">Гамбургер вегетаріанський</option>
+		<option value="269">Сендвіч</option>
+		<option value="168">Сендвіч вегетаріанський</option>
+		<option value="282">Чизбургер</option>
+		<option value="256">Піцца</option>
+		<option value="230">Піцца вегетаріанська</option>
+    </select>
+	</div>
+	<h4>Снеки</h4>
+	<div class="new-select-style-wpandyou">
+	 <select name="snacks"  form="my_form" v-model="product">
+	 <option value="">Виберіть продукт</option>
+		<option value="549">Картопляні чіпси</option>
+		<option value="488">Кукурудзяні чіпси</option>
+		<option value="370">Сухарики</option>
+		<option value="607">Солоні горішки</option>
+		<option value="374">Попкорн</option>
+		<option value="504">Крекер</option>
+		<option value="372">Соломка</option>
+    </select>
+	</div>
+	<h4>Горіхи, насіння</h4>
+	<div class="new-select-style-wpandyou">
+	 <select id="nuts_seeds" form="my_form" v-model="product">
+	 <option value="">Виберіть продукт</option>
+		<option value="551">Арахіс</option>
+		<option value="633">Кешью</option>
+		<option value="649">Мигдаль</option>
+		<option value="610">Фісташки</option>
+		<option value="707">Фундук</option>
+		<option value="580">Насіння гарбуза</option>
+		<option value="610">Насіння соняшника</option>
+    </select>
+	</div>
+	<h4>Ковбасні вироби</h4>
+	<div class="new-select-style-wpandyou">
+	 <select name="sausage_products" form="my_form" v-model="product">
+	 <option value="">Виберіть продукт</option>
+		<option value="270">Варена ковбаса</option>
+		<option value="425">Ковбаса варено-копчена</option>
+		<option value="425">Ковбаса варено-копчена</option>
+		<option value="466">Ковбаса напівкопчена</option>
+		<option value="332">Сардельки</option>
+		<option value="342">Сосиски</option>	
+    </select>
+	</div>
+	</div>
+	<div class="col-md-4 col-sm-12 col-xs-12">
+	<h3>Розрахунок</h3>
+	<p><h4>Калорійність на 100 грам продукту:</h4><span class="chislo">{{products()}}</span></p>
+	<h4>Введіть вагу тіла, кг</h4>
+	<input type="number" v-model="vaga">
+	<p><h4>Час виконання, хв:</h4><span class="chislo">{{result()}}</span></p>
+	</div>
+	<div class="col-md-4 col-sm-12 col-xs-12">
+	<h3>Вид діяльності</h3>
+	<input type="radio" value="0.055" id="radio1" name="radio" v-model="number">
+	<label for="radio1">Повільна ходьба(3км/год)</label><br>
+	<input type="radio" value="0.0766" id="radio2" name="radio" v-model="number">
+	<label for="radio2">Швидка ходьба(6км/год)</label><br>
+	<input type="radio" value="0.166" id="radio3" name="radio" v-model="number">
+	<label for="radio3">Дуже швидка ходьба(8км/год)</label><br>
+	<input type="radio" value="0.1533" id="radio4" name="radio" v-model="number">
+	<label for="radio4">Біг в повільному темпі</label><br>
+	<input type="radio" value="0.1916" id="radio5" name="radio" v-model="number">
+	<label for="radio5">Біг в швидкому темпі</label><br>
+	<input type="radio" value="0.7666" id="radio6" name="radio" v-model="number">
+	<label for="radio6">Аеробіка</label><br>
+	<input type="radio" value="0.7666" id="radio7" name="radio" v-model="number">
+	<label for="radio7">Катання на велосипеді</label><br>
+	<input type="radio" value="0.1016" id="radio8" name="radio" v-model="number">
+	<label for="radio8">Плавання</label><br>
+	<input type="radio" value="0.115" id="radio9" name="radio" v-model="number">
+	<label for="radio9">Теніс(не професійний)</label><br>
+	<input type="radio" value="0.1533" id="radio10" name="radio" v-model="number">
+	<label for="radio10">Ходьба на лижах</label><br>
+	<input type="radio" value="0.1266" id="radio11" name="radio" v-model="number">
+	<label for="radio11">Катання на ковзанах</label><br>
+	<input type="radio" value="0.12" id="radio12" name="radio" v-model="number">
+	<label for="radio12">Стрибки на скакалці</label><br>
+	<input type="radio" value="0.0648" id="radio13" name="radio" v-model="number">
+	<label for="radio13">Фізична зарядка</label><br>
+	<input type="radio" value="0.0530" id="radio14" name="radio" v-model="number">
+	<label for="radio14">Домашня робота</label><br>
+	<input type="radio" value="0.0476" id="radio15" name="radio" v-model="number">
+	<label for="radio15">Прогулянка повільна</label><br>
+	</div>
+   </div>
+</div>
+</section>
+
+<script>
+var app = new Vue({
+el:"#app",
+data:{
+product:'',
+vaga:'',
+number:''
+},
+methods:{
+products:function(){
+return this.product;
+},
+result:function(){
+return Math.round(this.product/(this.vaga*this.number));
+},
+
+}
+});
+</script>
+</body>
+</html>
